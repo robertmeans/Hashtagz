@@ -1,0 +1,167 @@
+section#branding-section {
+	div#news-open {
+		height: 80px;
+		position: absolute;
+		bottom: 0;
+		margin: 0 auto;
+	}
+}
+article#news {
+	height: 100vh;
+	// min-height: 800px;
+	background: #fff url(_images/news-education.jpg) no-repeat center center fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	padding: 50px 0px;
+}
+
+// ---------------------
+article div.news-wrap {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 86%;
+	max-width: 980px;
+	background-color: rgba(255,255,255,0.9);
+	color: #8d7a64;
+	padding: 50px 50px 20px;
+	border-radius: 20px;
+	border: 2px solid #8d7a64;
+	box-sizing: border-box;
+	div.news-left,
+	div.news-right {
+		box-sizing: border-box;
+		width: 50%;
+	}
+	div.news-left {
+		border-right: 1px solid #8d7a64;
+		padding-right: 30px;
+		text-align: left;
+		color: #333;
+		ul 	{
+			margin-left: 1.5em;
+		}
+		ul li {
+			line-height: 1em;
+			margin-bottom: 1em;
+		}
+		li.heading {
+			font-weight: bold;
+		}
+		p {
+			padding-left: 30px;
+		}
+		a.news-link {
+			padding: 0;
+			background-color: inherit;
+			border: 0;
+			color: blue;
+			text-decoration: none;
+			width: auto;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	h2 {
+		font-family: 'Marck Script', cursive;
+		font-size: 3em;
+		line-height: 1em;
+		transition: all 0.3s ease;
+	}
+	div.next {
+		// box-sizing: border-box;
+		// width: 100%;
+		// display: block;
+		a.chevron-news-link {
+			display: inline-block;
+	        text-align: center;
+	        margin: 20px auto 0 auto;
+	        padding: 5px;
+	        border: 0;
+	        width: 42px;
+	        height: 42px;
+	        // position: relative;
+	        background-color: #bfa88c;
+	        border-radius: 50%;
+	        transition: background-color 0.9s ease;
+	        animation: in 0.2s 2 linear;
+	        &:hover {
+	          background-color: #8d7a64;
+	          animation: out 0.2s 2 linear; 
+	        }
+	      }	
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	article div.news-wrap {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		div.news-left,
+		div.news-right {
+			width: 100%;
+		}
+		div.news-right {
+			order: 1;
+			-webkit-order: 1;
+		}
+		div.news-left {
+			order: 2;
+			-webkit-order: 2;
+			border-right: 0;
+			border-top: 1px solid #8d7a64;
+			padding-top: 20px;
+		}
+		h2 {
+			padding-bottom: 0.5em;
+		}
+		div.next {
+			order: 3;
+			-webkit-order: 3;
+			a.chevron-news-link {
+				display: inherit;
+			}
+		}
+	}
+}
+@media screen and (max-width: 800px) {
+	article#news {
+		height: auto;
+	}
+}
+@media screen and (max-width: 660px) {
+	article div.news-wrap {
+		width: 94%;
+	}
+	article#news {
+		padding-top: 80px;
+		background-attachment: scroll;
+	    width: 100%;
+	    height: auto;
+	}
+}
+
+
+
+@media screen and (max-width: 550px) {
+	article div.news-wrap {
+		h2 {
+			font-size: 2em;
+		}
+	}
+}
+@media screen and (max-width: 430px) {
+	article div.news-wrap {
+		h2 {
+			font-size: 1.6em;
+		}
+	}
+}

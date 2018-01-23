@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 		/* Autoprefixer */
 		autoprefixer: {
 			options: {
-				browsers: ['last 5 versions']
+				browsers: ['last 2 versions']
 			},
 			// prefix all files
 			multiple_files: {
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
 				tasks: ['sass','autoprefixer']
 			}, // css
 			hypertext: {
-				files: ['*.php','*.htm','_includes/*.php']
+				files: ['*.php','*.htm','_includes/*.*']
 			} //hypertext
 		}, //watch
 

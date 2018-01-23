@@ -1,0 +1,108 @@
+#intro {
+	div#about-open {
+		height: 80px;
+		position: absolute;
+		bottom: 0;
+		margin: 0 auto;
+	}
+}
+
+article#about {
+	height: 100vh;
+	min-height: 800px;
+	background: #fff url(_images/hashtagz-about-bkg.jpg) no-repeat center center fixed;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+
+article div.about-wrap {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	max-width: 900px;
+	background-color: rgba(255,255,255,0.9);
+	color: #dba101;
+	padding: 50px 50px 20px;
+	border-radius: 20px;
+	border: 2px solid #dba101;
+	box-sizing: border-box;
+	div.about-left,
+	div.about-right {
+		box-sizing: border-box;
+		width: 50%;
+	}
+	div.about-right {
+		border-left: 1px solid #dba101;
+		text-align: left;
+		color: #333;
+		p {
+			padding-left: 30px;
+		}
+	}
+	h2 {
+		font-family: 'Marck Script', cursive;
+		font-size: 3em;
+	}
+	div.next {
+		width: 100%;
+		display: block;
+		a.chevron-about-link {
+			display: inherit;
+	        text-align: center;
+	        margin: 20px auto 0 auto;
+	        padding: 5px;
+	        border: 0;
+	        width: 42px;
+	        height: 42px;
+	        // position: relative;
+	        background-color: #e9c767;
+	        border-radius: 50%;
+	        transition: background-color 0.9s ease;
+	        animation: in 0.2s 2 linear;
+	        &:hover {
+	          background-color: #dba101;
+	          animation: out 0.2s 2 linear; 
+	        }
+	      }	
+	}
+
+
+}
+@media screen and (max-width: 720px) {
+	article div.about-wrap {
+		flex-direction: column;
+		width: 94%;
+		div.about-left,
+		div.about-right {
+			width: 100%;
+		}
+		div.about-right {
+			border-left: 0;
+			border-top: 1px solid #dba101;
+			padding-top: 20px;
+			p {
+				padding-left: 0px;
+			}
+		}
+		h2 {
+			line-height: 1em;
+			padding-bottom: 0.5em;
+		}
+	}
+}
+@media screen and (max-width: 660px) {
+  article#about {
+    background-attachment: scroll;
+    width: 100%;
+    height: auto;
+  }
+}

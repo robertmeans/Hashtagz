@@ -241,6 +241,44 @@ $(function(){
 });
 // end - smooth scrolling for everyone!
 
+// begin - parallax
+// Create cross browser requestAnimationFrame method:
+window.requestAnimationFrame = window.requestAnimationFrame
+|| window.mozRequestAnimationFrame
+|| window.webkitRequestAnimationFrame
+|| window.msRequestAnimationFrame
+|| function(f){setTimeout(f, 1000/60)}
+
+var branding = document.getElementById('branding');
+
+// var bubble2 = document.getElementById('bubbles2')
+// var fish = document.getElementById('fish')
+
+var scrollheight =  document.body.scrollHeight // height of entire document
+var windowheight = window.innerHeight // height of browser window
+
+
+function parallaxthis(){
+  var scrolltop = window.pageYOffset // get number of pixels document has scrolled vertically
+  var scrollamount = (scrolltop / ((scrollheight-windowheight)-1110)) * 100 // get amount scrolled (in %)
+
+  // next line needs amount adjusted so that it will be out of the way when the next scene is visible so the links will be accessible and not under the scene-one layer
+  branding.style.top = -scrolltop * 1.5 + 'px'; // move # at x% of scroll speed  
+
+
+}
+
+window.addEventListener('scroll', function(){ // on page scroll
+  requestAnimationFrame(parallaxthis) // call parallaxthis() on next available screen repaint
+}, false)
+
+// end - parallax
+
+
+
+
+
+
 
 
 
@@ -370,7 +408,133 @@ function overlay() {
 }
 
 
-// $('.join-now-btn').click(function() {
-//       $("#da-body").removeClass("modal-open");
-//       $(this).addClass('modal-open');
-// });
+
+
+
+
+
+// begin navigation appear on scroll                          
+$(window).scroll(function(){                          
+    if ($(this).scrollTop() > 200) {
+        $('#navigation').fadeIn(500);
+    } else {
+        $('#navigation').fadeOut(500);
+    }
+});
+// end navigation appear on scroll
+
+
+
+/* Set the width of the side navigation to 250px */
+function openNav() {
+    // document.getElementById("mySidenav").style.width = "250px";
+    var e = document.getElementById("mySidenav");
+    if (e.style.width == '250px')
+    {
+        e.style.width = '0px';
+    }
+    else 
+    {
+        e.style.width = '250px';
+    }
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
+
+
+
+
+
+
+
+// validate general contact
+function validateEmail(emailStr) {
+var emailPat=/^(.+)@(.+)$/
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
+var validChars="\[^\\s" + specialChars + "\]"
+var quotedUser="(\"[^\"]*\")"
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/
+var atom=validChars + '+'
+var word="(" + atom + "|" + quotedUser + ")"
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$")
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$")
+var matchArray=emailStr.match(emailPat)
+if (document.forms[0].email.value == "")
+      {
+      alert("\nThe e-mail field is blank.\n\nPlease enter your e-mail address.")
+      document.forms[0].email.focus()
+      return false
+}
+if (matchArray==null) {
+  /* Too many/few @'s or something; basically, this address doesn't
+     even fit the general mould of a valid e-mail address. */
+  alert("_____________________________\n\nYour e-mail address seems incorrect. Please check the following\n\n1. Did you include the \"@\" and the \" . \" (dot)?\n2. Did you include anything other than a \"@\" & \" . \"?\n\nPlease re-enter your e-mail address.\n_____________________________")
+  document.forms[0].email.select();
+    document.forms[0].email.focus();
+  return false
+}
+var user=matchArray[1]
+var domain=matchArray[2]
+if (user.match(userPat)==null) {
+    // user is not valid
+    alert("_____________________________\n\nThe username does not seem to be valid.\n\nPlease check the following:\n\n1. That you entered your e-mail address correctly.\n\nThank you.\n_____________________________")
+    document.forms[0].email.select();
+    document.forms[0].email.focus();
+    return false
+}
+var IPArray=domain.match(ipDomainPat)
+if (IPArray!=null) {
+    // this is an IP address
+    for (var i=1;i<=4;i++) {
+      if (IPArray[i]>255) {
+          alert("_____________________________\n\nThe destination IP address you entered is invalid.\n\nPlease check your e-mail address and make the necessary corrections.\n\nThank you.\n_____________________________")
+          document.forms[0].email.select();
+      document.forms[0].email.focus();
+    return false
+      }
+    }
+    return true
+}
+var domainArray=domain.match(domainPat)
+if (domainArray==null) {
+  alert("_____________________________\n\nAre you making stuff up now?\n\nThe e-mail address portion of this form is not something to scoff at.\n\nI've been placed here in  your computer to make sure your information is valid. You\nneed to enter your real e-mail address or successfully fake me out to proceed.\n\nThank you.\n_____________________________")
+  document.forms[0].email.select();
+  document.forms[0].email.focus();
+    return false
+}
+var atomPat=new RegExp(atom,"g")
+var domArr=domain.match(atomPat)
+var len=domArr.length
+if (domArr[domArr.length-1].length<2 ||
+    domArr[domArr.length-1].length>3) {
+   // the address must end in a two letter or three letter word.
+   alert("_____________________________\n\nYour e-mail address must end in a three-letter domain, or two letter country.\n\n_____________________________")
+   document.forms[0].email.select();
+   document.forms[0].email.focus();
+   return false
+}
+if (len<2) {
+   var errStr="_____________________________\n\nYour e-mail address is missing either a username, a hostname or a domain.\nAn e-mail address should include these three basic components:\n\n1. A username - (e.g., YOURNAME@yahoo.com, YOURNAME@mho.net)\n2. A host - (e.g., yourname@YAHOO.com, yourname@MHO.net)\n3. A domain - (e.g., yourname@yahoo.COM, yourname@mho.NET)\n\nPlease make the necessary corrections and press \"Send\".\n-- Thank you, The unforgiving script validating this e-mail field.\n\n_____________________________"
+   alert(errStr)
+   document.forms[0].email.select();
+   document.forms[0].email.focus();
+   return false
+}
+return true;
+}
+
+
+// fade onload
+$(document).ready(function(){
+    // $(".fade").hide(0).delay(500).fadeIn(3000);
+    $('.fade').animate(
+      { right: 0 }, 
+      { duration: 1500 }
+      );
+});
+
