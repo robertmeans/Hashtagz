@@ -46,7 +46,7 @@ section#branding-section {
 	  justify-content: center;
 	  align-items: center;
 	  width: 80%;
-	  max-width: 60%;
+	  max-width: 900px;
 	  box-sizing: border-box;
 
 	  // margin: 50px auto;
@@ -87,7 +87,7 @@ section#branding-section {
 
 	.brands-right {
 	  width: 80%;
-	  max-width: 60%;
+	  max-width: 900px;
 	  box-sizing: border-box;
 	  // margin: 50px auto;
 	  
@@ -147,11 +147,11 @@ section#branding-section {
     to { transform: rotate(360deg);}
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 720px) {
 	section#branding-section {
 		.brands-left,
 		.brands-right {
-			max-width: 94%;
+			width: 94%;
 		}
 		.brands-right {
 			padding: 20px 20px 0px;

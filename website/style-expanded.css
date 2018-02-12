@@ -596,7 +596,7 @@ section#branding-section .brands-left {
   -ms-flex-align: center;
       align-items: center;
   width: 80%;
-  max-width: 60%;
+  max-width: 900px;
   box-sizing: border-box;
   padding: 50px 20px 0px;
   text-align: center;
@@ -632,7 +632,7 @@ section#branding-section .brands-left--primary {
 }
 section#branding-section .brands-right {
   width: 80%;
-  max-width: 60%;
+  max-width: 900px;
   box-sizing: border-box;
   padding: 20px 50px 0px;
   text-align: left;
@@ -694,10 +694,10 @@ section#branding-section span.chevron-center a.chevron-brands-link:hover {
     transform: rotate(360deg);
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 720px) {
   section#branding-section .brands-left,
   section#branding-section .brands-right {
-    max-width: 94%;
+    width: 94%;
   }
   section#branding-section .brands-right {
     padding: 20px 20px 0px;
@@ -944,8 +944,8 @@ article div.news-wrap {
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-  width: 86%;
-  max-width: 980px;
+  width: 80%;
+  max-width: 900px;
   background-color: rgba(255, 255, 255, 0.9);
   color: #8d7a64;
   padding: 50px 50px 20px;
