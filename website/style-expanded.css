@@ -726,6 +726,9 @@ section#contact h2 {
   background-color: orange;
   padding: 0.5em 2em;
 }
+section#contact p.required-fields {
+  color: red;
+}
 section#contact div#contact-form {
   display: -ms-flexbox;
   display: flex;
@@ -765,8 +768,12 @@ section#contact div#contact-form .right-side label {
 }
 section#contact div#contact-form .left-side input#name,
 section#contact div#contact-form .left-side input#email,
+section#contact div#contact-form .left-side input#company,
+section#contact div#contact-form .left-side input#phoneNumber,
 section#contact div#contact-form .right-side input#name,
-section#contact div#contact-form .right-side input#email {
+section#contact div#contact-form .right-side input#email,
+section#contact div#contact-form .right-side input#company,
+section#contact div#contact-form .right-side input#phoneNumber {
   width: 96%;
   max-width: 200px;
   height: 1.5em;
@@ -804,12 +811,17 @@ section#contact div#contact-form .right-side input#send:hover {
   section#contact div#contact-form .left-side {
     margin-bottom: 20px;
     padding-right: 0px;
+    width: 96%;
   }
-  section#contact div#contact-form .left-side,
   section#contact div#contact-form .right-side {
     width: 96%;
   }
-  section#contact div#contact-form .left-side textarea,
+  section#contact div#contact-form .right-side input#name,
+  section#contact div#contact-form .right-side input#email,
+  section#contact div#contact-form .right-side input#company,
+  section#contact div#contact-form .right-side input#phoneNumber {
+    height: 2em;
+  }
   section#contact div#contact-form .right-side textarea {
     max-width: 450px;
   }

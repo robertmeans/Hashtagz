@@ -538,3 +538,6 @@ $(document).ready(function(){
       );
 });
 
+
+$('#phoneNumber').inputmask("(999) 999-9999");
+

@@ -13,6 +13,9 @@ section#contact {
     background-color: orange;
     padding: 0.5em 2em;
   }
+  p.required-fields {
+    color: red;
+  }
   div#contact-form {
     display: flex;
     width: 80%;
@@ -47,7 +50,9 @@ section#contact {
         display: block;
       }
       input#name,
-      input#email {
+      input#email,
+      input#company, 
+      input#phoneNumber {
         width: 96%;
         max-width: 200px;
         height: 1.5em;
@@ -83,10 +88,16 @@ section#contact {
       .left-side {
         margin-bottom: 20px;
         padding-right: 0px;
+        width: 96%;
       }
-      .left-side,
       .right-side {
         width: 96%;
+          input#name,
+          input#email,
+          input#company, 
+          input#phoneNumber {
+            height: 2em;
+          }
           textarea {
           max-width: 450px;
         }

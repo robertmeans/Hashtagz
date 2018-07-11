@@ -9,5 +9,6 @@
 </div><!-- #mySidenav -->
 <nav id="navigation">
 	<span onclick="openNav()"><img id="nav-toggle" src="_images/nav-toggle.png" /></span>
-	<a class="logo-top" href="#top-of-page"><img id="nav-logo" src="_images/hashtagz-banner-logo-animated.gif" alt="#Hashtagz Logo"></a>
+	<!-- <a class="logo-top" href="#top-of-page"><img id="nav-logo" src="_images/hashtagz-banner-logo-animated.gif" alt="#Hashtagz Logo"></a> -->
+	<a class="logo-top" href="#top-of-page"><img id="nav-logo" src="_images/hashtagz-nav-logo_2.png" alt="#Hashtagz Logo"></a>
 </nav>

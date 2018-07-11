@@ -174,7 +174,8 @@
     return;
     }
 ?>
-<form action="index.php#contact" method="post" id="contactForm" onSubmit="return validateEmail(document.forms[0].email.value);">
+<p class="required-fields">All fields are required.</p>
+<form action="index.php#contact" method="post" id="contactForm">
     <ul>
         <li>
           <label class="text" for="name">Name</label>
@@ -185,11 +186,19 @@
           <input required name="email" type="email" id="email" tabindex="20" />
         </li>
         <li>
-          <label class="text" for="comments">Comments</label>
-          <textarea required noresize name="comments" id="comments" tabindex="30"></textarea>
+          <label class="text" for="company">Company</label>
+          <input required name="company" type="text" id="company" tabindex="30" />
         </li>
         <li>
-           <!-- <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LePdkEUAAAAAPMT7dBJXmx7XgWKROLQQJmZbzXy"></div> -->
+          <label class="text" for="phoneNumber">Phone</label>
+          <input required name="phoneNumber" type="tel" id="phoneNumber" value title="10 Digit Format: (303) 123-4567" tabindex="40" />
+        </li>
+        <li>
+          <label class="text" for="comments">Comments</label>
+          <textarea required noresize name="comments" id="comments" tabindex="50"></textarea>
+        </li>
+        <li>
+           <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6LePdkEUAAAAAPMT7dBJXmx7XgWKROLQQJmZbzXy"></div>
         </li>
         <li>
             <button id="confirm" disabled>Check Captcha above to enable Send</button>
